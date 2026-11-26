@@ -1,1 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071321">
+<meta name="description" content="대왕해교 세계관 설정 기록소">
+<title>대왕해교 기록소</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+:root{--bg:#071321;--bg2:#0a1b2b;--panel:#0d2031;--panel2:#11283b;--line:#1c3a50;--text:#e8f0f6;--muted:#91a7b8;--dim:#668197;--ice:#8edce8;--cyan:#49b8cb;--gold:#c6b78f;--shadow:0 18px 55px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 72% -12%,#17415a77 0,transparent 43%),radial-gradient(ellipse at 0% 55%,#0b345022 0,transparent 40%),var(--bg);color:var(--text);font-family:'Noto Sans KR',system-ui,sans-serif}button,input{font:inherit}button{color:inherit}
+.topbar{height:70px;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5vw,72px);background:#071321eF;border-bottom:1px solid #24425899;backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:2.2px}.brand-mark{width:29px;height:29px;border:1px solid #4ca9bc;border-radius:50%;display:grid;place-items:center;color:var(--ice);font-size:14px}.brand span{color:var(--ice)}.top-status{font-size:10px;color:#8cb3c5;letter-spacing:2px}.top-status i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#61c8b2;margin-right:8px;box-shadow:0 0 10px #61c8b2}
+.shell{max-width:1370px;margin:auto;padding:36px clamp(16px,4vw,52px) 70px;display:grid;grid-template-columns:226px minmax(0,1fr);gap:38px}.sidebar{align-self:start;position:sticky;top:100px}.side-kicker{font-size:9px;color:var(--dim);letter-spacing:3px;padding:0 12px 15px}.nav{display:grid;gap:6px}.nav button{width:100%;display:flex;align-items:center;gap:12px;text-align:left;padding:12px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--muted);cursor:pointer;transition:.2s}.nav button:hover,.nav button.active{background:linear-gradient(100deg,#16364a,#102638);border-color:#28506a;color:var(--text)}.nav-num{font-size:10px;color:var(--cyan);font-variant-numeric:tabular-nums}.nav-label{font-size:12px;font-weight:600}.side-note{margin-top:30px;padding:15px;border:1px solid var(--line);border-radius:10px;background:#0b1b2a88;color:var(--muted);font-size:10px;line-height:1.9}.side-note b{display:block;color:#c5d8e4;font-size:9px;letter-spacing:2px;margin-bottom:7px}
+main{min-width:0}.masthead{position:relative;overflow:hidden;border:1px solid #24465e;border-radius:16px;padding:clamp(28px,5vw,58px);background:linear-gradient(115deg,#102c41ed,#0b1d2ce8 65%,#10283a);box-shadow:var(--shadow)}.masthead:before{content:"";position:absolute;width:320px;height:320px;right:-80px;top:-145px;border:1px solid #63c6d522;border-radius:50%;box-shadow:0 0 0 24px #63c6d20b,0 0 0 50px #63c6d208,0 0 80px #43b4ca12}.masthead:after{content:"";position:absolute;width:170px;height:170px;right:20px;top:-75px;border:1px solid #8dd9e522;border-radius:50%}.eyebrow{font-size:9px;letter-spacing:4px;color:var(--ice);margin-bottom:16px}.masthead h1{position:relative;z-index:1;margin:0;font-size:clamp(29px,5vw,48px);letter-spacing:3px;font-weight:800}.submark{color:#90aebf;font-size:11px;letter-spacing:3px;margin-top:12px}.lead{max-width:620px;color:#a8bac8;font-size:12px;line-height:2.1;margin:24px 0 0}.mast-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid #31546b;border-radius:999px;padding:6px 10px;color:#afc6d4;font-size:9px;letter-spacing:1px;background:#0a1c2a88}
+.search-row{display:flex;align-items:center;gap:12px;margin:22px 0 32px}.searchbox{flex:1;position:relative}.searchbox input{width:100%;padding:13px 16px 13px 40px;background:#0a1a29;border:1px solid var(--line);border-radius:9px;color:var(--text);outline:none;font-size:12px}.searchbox input:focus{border-color:#4a9db0;box-shadow:0 0 0 3px #49b8cb14}.searchbox input::placeholder{color:#6d879a}.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#7393a7;font-size:15px}.search-hint{font-size:10px;color:var(--dim);white-space:nowrap}
+.view{display:none}.view.active{display:block}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:0 0 16px}.section-heading h2{font-size:19px;letter-spacing:.5px;margin:0}.section-heading p{margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.8}.section-code{font-size:9px;color:var(--cyan);letter-spacing:2px;white-space:nowrap}
+.quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.quick-card{min-height:130px;padding:20px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,#112b3f,#0b1d2c);text-align:left;cursor:pointer;transition:.22s}.quick-card:hover{transform:translateY(-3px);border-color:#4d9eb1;box-shadow:0 12px 30px #0003}.quick-card .qnum{font-size:9px;letter-spacing:2px;color:var(--cyan)}.quick-card h3{font-size:14px;margin:12px 0 7px}.quick-card p{font-size:11px;line-height:1.8;color:var(--muted);margin:0}.notice{margin-top:24px;border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:9px;background:#0c1f2e;padding:17px 19px;color:var(--muted);font-size:11px;line-height:1.9}.notice b{display:block;color:#d9e7ee;margin-bottom:5px;font-size:12px}
+.org-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin-bottom:19px}.org-count{color:#8da9ba;font-size:10px;letter-spacing:1px;white-space:nowrap}.org-groups{display:grid;gap:13px}.org-group{border:1px solid #24445a;border-radius:12px;background:linear-gradient(145deg,#10283a,#0a1c2b);overflow:hidden;box-shadow:0 10px 28px #0002}.group-toggle{width:100%;display:flex;align-items:center;gap:15px;text-align:left;padding:17px 19px;background:transparent;border:0;cursor:pointer}.group-index{width:39px;height:39px;flex:0 0 39px;display:grid;place-items:center;border:1px solid #376078;border-radius:10px;color:var(--ice);font-size:11px;background:#173448}.group-title{flex:1;min-width:0}.group-title strong{display:block;font-size:13px}.group-title small{display:block;margin-top:4px;color:#7895a8;font-size:9px;letter-spacing:1.5px}.group-count{font-size:10px;color:#91a9b8}.chevron{color:var(--ice);font-size:16px;transition:transform .2s}.org-group.open .chevron{transform:rotate(180deg)}.group-body{display:none;padding:0 18px 18px}.org-group.open .group-body{display:block}.group-divider{height:1px;background:#254459;margin:0 18px 16px}.major-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.major-card{min-width:0;overflow:hidden;border:1px solid #29495f;border-radius:10px;background:#091a28;cursor:pointer;text-align:left;padding:0;transition:.2s}.major-card:hover{border-color:#64bdca;transform:translateY(-3px);box-shadow:0 12px 26px #0004}.emblem{aspect-ratio:1/1;width:100%;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 40%,#244a69,#0a1c2b 72%)}.emblem img{width:100%;height:100%;object-fit:cover;display:block}.emblem-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;color:#85a8ba;background:radial-gradient(circle at 50% 45%,#1b4054,#091a29 73%)}.emblem-placeholder .sigil{font-size:39px;opacity:.72}.emblem-placeholder small{font-size:8px;letter-spacing:2px}.major-info{padding:13px 13px 15px}.major-info .type{font-size:8px;color:var(--cyan);letter-spacing:1.5px}.major-info strong{display:block;font-size:13px;margin-top:6px}.major-info small{display:block;color:#718da0;font-size:9px;margin-top:5px}.slot-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.slot{border:1px solid #25445a;border-radius:8px;background:#0a1c2a;padding:13px 10px;min-height:70px}.slot b{display:block;color:#b9d1dc;font-size:11px}.slot span{display:block;margin-top:5px;color:#718b9e;font-size:9px}.empty-note{margin-top:12px;color:#71899a;font-size:10px;line-height:1.8}.record{border:1px solid var(--line);border-radius:10px;padding:19px;background:#0c1f2e;margin-bottom:11px}.record-tag{font-size:9px;letter-spacing:2px;color:var(--cyan)}.record h3{font-size:14px;margin:9px 0}.record p{font-size:11px;line-height:2;color:var(--muted);margin:0}.empty{padding:28px 18px;border:1px dashed #29485c;border-radius:10px;color:#7891a3;font-size:11px;text-align:center;line-height:1.9;background:#0b1c2a}
+.modal-backdrop{position:fixed;inset:0;z-index:50;background:#020812c9;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(7px)}.modal-backdrop.show{display:flex}.modal{width:min(480px,100%);border:1px solid #376078;border-radius:14px;background:linear-gradient(145deg,#112c40,#091a29);box-shadow:0 25px 80px #0009;overflow:hidden}.modal-top{display:flex;justify-content:space-between;align-items:center;padding:16px 19px;border-bottom:1px solid var(--line)}.modal-top span{font-size:9px;letter-spacing:2px;color:var(--cyan)}.close-modal{border:1px solid #315166;background:#0b1d2b;border-radius:7px;padding:5px 10px;cursor:pointer;color:#b9cfdb}.modal-content{padding:22px}.modal-content h3{font-size:21px;margin:0 0 9px}.modal-content p{font-size:12px;line-height:2;color:var(--muted);margin:0}.modal-foot{border-top:1px solid var(--line);padding:13px 20px;font-size:9px;color:#7892a3;letter-spacing:1px}
+footer{max-width:1370px;margin:0 auto;padding:0 20px 30px;text-align:center;color:#587386;font-size:9px;letter-spacing:2px}
+@media(max-width:850px){.shell{grid-template-columns:1fr;gap:24px;padding-top:22px}.sidebar{position:static}.nav{display:flex;overflow-x:auto;padding-bottom:5px}.nav button{width:auto;flex:0 0 auto;white-space:nowrap;padding:10px 12px}.side-kicker,.side-note{display:none}.major-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.slot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.topbar{height:60px}.top-status{font-size:8px}.masthead{border-radius:12px;padding:26px 22px}.masthead h1{letter-spacing:1px}.search-hint{display:none}.section-heading h2{font-size:17px}.major-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.slot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.group-toggle{padding:14px}.group-body{padding:0 12px 13px}.group-divider{margin:0 14px 13px}.quick-grid{grid-template-columns:1fr}.org-intro{display:block}.org-count{display:block;margin-top:7px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">海</div><div>DAEWANG <span>HAEGYO</span> ARCHIVE</div></div>
+  <div class="top-status"><i></i>PUBLIC RECORDS</div>
+</header>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="side-kicker">ARCHIVE INDEX</div>
+    <nav class="nav" aria-label="기록소 메뉴">
+      <button class="active" data-view="overview"><span class="nav-num">00</span><span class="nav-label">기록소 개요</span></button>
+      <button data-view="concepts"><span class="nav-num">01</span><span class="nav-label">개념 및 현상</span></button>
+      <button data-view="organizations"><span class="nav-num">02</span><span class="nav-label">조직 소개</span></button>
+      <button data-view="people"><span class="nav-num">03</span><span class="nav-label">인물</span></button>
+      <button data-view="history"><span class="nav-num">04</span><span class="nav-label">역사 및 기록</span></button>
+    </nav>
+    <div class="side-note"><b>ARCHIVE NOTICE</b>대왕해교 세계관에 관한 설정 자료를 분류하고 열람하기 위한 기록소입니다.</div>
+  </aside>
+  <main>
+    <section class="masthead">
+      <div class="eyebrow">THE DEEP SEA · WORLDVIEW ARCHIVE</div>
+      <h1>대왕해교 기록소</h1>
+      <div class="submark">DAEWANG HAEGYO · ARCHIVE</div>
+      <p class="lead">대왕해교의 세계와 그 안에 존재하는 개념, 조직, 인물 및 사건을 기록하는 공간입니다. 분류를 선택해 각 기록을 열람할 수 있습니다.</p>
+      <div class="mast-meta"><span class="pill">WORLD LORE</span><span class="pill">READ-ONLY ARCHIVE</span><span class="pill">EST. · DAEWANG HAEGYO</span></div>
+    </section>
+    <div class="search-row"><div class="searchbox"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="현재 페이지에서 기록 검색..." autocomplete="off" aria-label="현재 페이지 검색"></div><span class="search-hint">CURRENT SECTION</span></div>
 
+    <section class="view active" id="overview">
+      <div class="section-heading"><div><h2>기록소 안내</h2><p>열람할 기록의 분류를 선택해 주세요.</p></div><span class="section-code">00 / OVERVIEW</span></div>
+      <div class="quick-grid">
+        <button class="quick-card" data-go="concepts"><span class="qnum">01 / CONCEPTS</span><h3>개념 및 현상</h3><p>특수한 물질과 능력, 세계관에 존재하는 현상에 관한 기록.</p></button>
+        <button class="quick-card" data-go="organizations"><span class="qnum">02 / ORGANIZATIONS</span><h3>조직 소개</h3><p>대왕해교에 속한 대조직·중조직·소조직의 분류와 정보.</p></button>
+        <button class="quick-card" data-go="people"><span class="qnum">03 / PERSONNEL</span><h3>인물</h3><p>세계관에 등장하는 인물에 관한 기록.</p></button>
+        <button class="quick-card" data-go="history"><span class="qnum">04 / HISTORY</span><h3>역사 및 기록</h3><p>주요 사건과 과거의 기록을 모아 둔 공간.</p></button>
+      </div>
+      <div class="notice"><b>열람 안내</b>왼쪽 메뉴 또는 분류 카드를 선택하면 해당 기록으로 이동합니다. 조직 소개에서는 각 분류를 펼쳐 소속 조직 목록을 확인할 수 있습니다.</div>
+    </section>
+
+    <section class="view" id="concepts">
+      <div class="section-heading"><div><h2>개념 및 현상</h2><p>대왕해교 세계관에 존재하는 특수한 개념과 현상.</p></div><span class="section-code">01 / CONCEPTS</span></div>
+      <article class="record searchable"><div class="record-tag">SPECIAL CONCEPT</div><h3>플로지스톤 [Phlogiston]</h3><p>일시적으로 사용자의 힘과 운을 극대화시켜 준다. 사용자의 감정을 연료 삼아 몸속의 푸른 불꽃을 일시적으로 키운다. 사용 가능한 자는 극히 적다.</p></article>
+    </section>
+
+    <section class="view" id="organizations">
+      <div class="org-intro"><div class="section-heading" style="margin:0"><div><h2>조직 소개</h2><p>바다교를 구성하는 조직을 규모별로 분류한 기록입니다.</p></div></div><span class="org-count">총 3개 분류 · 22개 조직 체계</span></div>
+      <div class="org-groups">
+        <section class="org-group open searchable-group">
+          <button class="group-toggle" aria-expanded="true"><span class="group-index">01</span><span class="group-title"><strong>3대 대조직</strong><small>THREE MAJOR ORGANIZATIONS</small></span><span class="group-count">03 ORGANIZATIONS</span><span class="chevron">⌄</span></button>
+          <div class="group-divider"></div>
+          <div class="group-body"><div class="major-grid">
+            <button class="major-card" data-org="maehwa"><div class="emblem"><img src="images/maehwa.png" alt="매화파 상징"></div><div class="major-info"><span class="type">MAJOR ORGANIZATION 01</span><strong>매화파</strong><small>상징 이미지 등록</small></div></button>
+            <button class="major-card" data-org="hyeolseo"><div class="emblem"><img src="images/hyeolseo.png" alt="혈서파 상징"></div><div class="major-info"><span class="type">MAJOR ORGANIZATION 02</span><strong>혈서파</strong><small>상징 이미지 등록</small></div></button>
+            <button class="major-card" data-org="haesa"><div class="emblem"><img src="images/haesa.png" alt="해사파 상징" onerror="this.hidden=true;this.nextElementSibling.style.display='flex'"><div class="emblem-placeholder" style="display:none"><span class="sigil">✧</span><small>SYMBOL PENDING</small></div></div><div class="major-info"><span class="type">MAJOR ORGANIZATION 03</span><strong>해사파</strong><small>상징 이미지 추후 등록</small></div></button>
+          </div></div>
+        </section>
+        <section class="org-group searchable-group">
+          <button class="group-toggle" aria-expanded="false"><span class="group-index">02</span><span class="group-title"><strong>7대 중조직</strong><small>SEVEN MEDIUM ORGANIZATIONS</small></span><span class="group-count">07 ORGANIZATIONS</span><span class="chevron">⌄</span></button>
+          <div class="group-divider"></div>
+          <div class="group-body"><div class="slot-grid">
+            <div class="slot searchable"><b>중조직 01</b><span>명칭 미등록</span></div><div class="slot searchable"><b>중조직 02</b><span>명칭 미등록</span></div><div class="slot searchable"><b>중조직 03</b><span>명칭 미등록</span></div><div class="slot searchable"><b>중조직 04</b><span>명칭 미등록</span></div><div class="slot searchable"><b>중조직 05</b><span>명칭 미등록</span></div><div class="slot searchable"><b>중조직 06</b><span>명칭 미등록</span></div><div class="slot searchable"><b>중조직 07</b><span>명칭 미등록</span></div>
+          </div><p class="empty-note">조직명과 세부 설정은 확정된 내용을 전달받은 뒤 등록합니다.</p></div>
+        </section>
+        <section class="org-group searchable-group">
+          <button class="group-toggle" aria-expanded="false"><span class="group-index">03</span><span class="group-title"><strong>12대 소조직</strong><small>TWELVE MINOR ORGANIZATIONS</small></span><span class="group-count">12 ORGANIZATIONS</span><span class="chevron">⌄</span></button>
+          <div class="group-divider"></div>
+          <div class="group-body"><div class="slot-grid">
+            <div class="slot searchable"><b>소조직 01</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 02</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 03</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 04</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 05</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 06</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 07</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 08</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 09</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 10</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 11</b><span>명칭 미등록</span></div><div class="slot searchable"><b>소조직 12</b><span>명칭 미등록</span></div>
+          </div><p class="empty-note">조직명과 세부 설정은 확정된 내용을 전달받은 뒤 등록합니다.</p></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="people"><div class="section-heading"><div><h2>인물</h2><p>인물 관련 기록을 모아 두는 공간입니다.</p></div><span class="section-code">03 / PERSONNEL</span></div><div class="empty">등록된 인물 기록이 없습니다.<br>확정된 설정을 전달받으면 이곳에 추가합니다.</div></section>
+    <section class="view" id="history"><div class="section-heading"><div><h2>역사 및 기록</h2><p>대왕해교의 사건과 연혁을 기록하는 공간입니다.</p></div><span class="section-code">04 / HISTORY</span></div><div class="empty">등록된 역사 및 사건 기록이 없습니다.<br>확정된 설정을 전달받으면 이곳에 추가합니다.</div></section>
+  </main>
+</div>
+<footer>DAEWANG HAEGYO ARCHIVE · WORLDVIEW DOCUMENTATION</footer>
+
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal"><div class="modal-top"><span>ORGANIZATION RECORD</span><button class="close-modal" id="closeModal">닫기 ✕</button></div><div class="modal-content"><h3 id="modal-title"></h3><p id="modal-description"></p></div><div class="modal-foot">DETAILS WILL BE UPDATED WHEN CONFIRMED</div></div>
+</div>
+<script>
+const navButtons=[...document.querySelectorAll('.nav button')];
+const views=[...document.querySelectorAll('.view')];
+const search=document.getElementById('search');
+function showView(id){views.forEach(v=>v.classList.toggle('active',v.id===id));navButtons.forEach(b=>b.classList.toggle('active',b.dataset.view===id));search.value='';filterRecords();window.scrollTo({top:0,behavior:'smooth'});}
+navButtons.forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.go)));
+document.querySelectorAll('.group-toggle').forEach(btn=>btn.addEventListener('click',()=>{const group=btn.closest('.org-group');group.classList.toggle('open');btn.setAttribute('aria-expanded',group.classList.contains('open')?'true':'false');}));
+const modal=document.getElementById('modal');
+const orgInfo={maehwa:['매화파','3대 대조직 · 첫 번째 조직\n현재 등록된 상세 설명은 없습니다.'],hyeolseo:['혈서파','3대 대조직 · 두 번째 조직\n현재 등록된 상세 설명은 없습니다.'],haesa:['해사파','3대 대조직 · 세 번째 조직\n상징 이미지와 상세 설명은 추후 등록할 예정입니다.']};
+document.querySelectorAll('[data-org]').forEach(card=>card.addEventListener('click',()=>{const info=orgInfo[card.dataset.org];document.getElementById('modal-title').textContent=info[0];document.getElementById('modal-description').textContent=info[1];modal.classList.add('show');}));
+function closeModal(){modal.classList.remove('show')}
+document.getElementById('closeModal').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function filterRecords(){const active=document.querySelector('.view.active');if(!active)return;const q=search.value.trim().toLowerCase();active.querySelectorAll('.searchable').forEach(el=>el.classList.toggle('hidden',!el.textContent.toLowerCase().includes(q)));if(active.id==='organizations'){active.querySelectorAll('.searchable-group').forEach(group=>{if(q){group.classList.add('open');group.querySelector('.group-toggle').setAttribute('aria-expanded','true')}else{group.querySelector('.group-toggle').setAttribute('aria-expanded',group.classList.contains('open')?'true':'false')}})}}
+search.addEventListener('input',filterRecords);
+</script>
+</body>
+</html>
